@@ -11,7 +11,12 @@ public class Beer {
 
     public Beer(String beerName, double Percent, double Plato) {
         this.BeerName = beerName;
-        this.Percent = Percent;
+        if(Percent > 70) {
+            System.out.println("Zgupłeś??!! Ustawiam 70% (max. dopuszczalne)");
+            throw new RuntimeException("70% to za duzo jak na piwo!");
+        } else {
+            this.Percent = Percent;
+        }
         this.Plato = Plato;
     }
 
@@ -20,21 +25,30 @@ public class Beer {
         return "Beer " + BeerName + " Percent " + Percent + " Plato " + Plato;
     }
 
-
-
-    public static void checkBeerStrength(ArrayList<Beer> beerList) {
-
-        for (Beer beer : beerList) {
-
-            System.out.println(beer);
-            if (beer.Percent <= 4.9) {
-                System.out.println("You can drink one more");
-            } else {
-                System.out.println("This beer is strong");
-            }
-
+    public boolean isStrong() {
+        if (this.Percent > 4.9) {
+            return true;
+        } else {
+            return false;
         }
 
+    }
+
+    public static boolean isStrong(Beer beer) {
+        if (beer.Percent > 4.9) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    public static boolean isStrong(double Percent) {
+        if (Percent > 4.9) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 

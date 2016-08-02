@@ -11,9 +11,12 @@ public class MainBeer {
         beerList.add(new Beer("Ciechan", 6, 12.2));
         beerList.add(new Beer("Tenczynek Lager", 4.9, 12));
         beerList.add(new Beer("Tyskie", 5.6, 12));
+        // Błąd! To nie jest piwo!
+//        beerList.add(new Beer("Piotrek", 192, 12));
 
-        Beer.checkBeerStrength(beerList);
 
+        Keeper julek = new Keeper();
+        julek.checkBeerStrength(beerList);
 
         System.out.println();
         System.out.println("Pętla while:");
@@ -39,7 +42,11 @@ public class MainBeer {
             System.out.println(beer);
         }
 
+
     }
+
+
+
 
 }
 
