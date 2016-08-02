@@ -3,13 +3,13 @@ import java.util.ArrayList;
 /**
  * Created by widzew on 2016-07-30.
  */
-public class BeerData {
+public class Beer {
 
     private String BeerName;
     private double Percent;
     private double Plato;
 
-    public BeerData(String beerName, double Percent, double Plato) {
+    public Beer(String beerName, double Percent, double Plato) {
         this.BeerName = beerName;
         this.Percent = Percent;
         this.Plato = Plato;
@@ -22,12 +22,12 @@ public class BeerData {
 
 
 
-    public static void checkBeerStrength(ArrayList<BeerData> beerList) {
+    public static void checkBeerStrength(ArrayList<Beer> beerList) {
 
-        for (BeerData beerData : beerList) {
+        for (Beer beer : beerList) {
 
-            System.out.println(beerData);
-            if (beerData.Percent <= 4.9) {
+            System.out.println(beer);
+            if (beer.Percent <= 4.9) {
                 System.out.println("You can drink one more");
             } else {
                 System.out.println("This beer is strong");
