@@ -23,16 +23,16 @@ public class BeerData {
 
 
     public static void checkBeerStrength(ArrayList<BeerData> beerList) {
-        int i = 0;
-        while(i < beerList.size()) {
-            BeerData beerData = beerList.get(i);
+
+        for (BeerData beerData : beerList) {
+
             System.out.println(beerData);
             if (beerData.Percent <= 4.9) {
                 System.out.println("You can drink one more");
             } else {
                 System.out.println("This beer is strong");
             }
-            i += 1;
+
         }
 
     }
