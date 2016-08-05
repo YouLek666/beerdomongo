@@ -10,13 +10,14 @@ public class MainBeer {
         beerList.add(new Beer("Rebel Podwójnie Chmielone", 5, 12));
         beerList.add(new Beer("Ciechan", 6, 12.2));
         beerList.add(new Beer("Tenczynek Lager", 4.9, 12));
-        beerList.add(new Beer("Tyskie", 5.6, 12));
+        beerList.add(new Beer("Tyskie", 5.6, 9));
         // Błąd! To nie jest piwo!
 //        beerList.add(new Beer("Piotrek", 192, 12));
 
 
         Keeper julek = new Keeper();
-        julek.checkBeerStrength(beerList);
+        julek.checkBeer2(beerList);
+
 
         System.out.println();
         System.out.println("Pętla while:");

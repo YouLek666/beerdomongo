@@ -15,4 +15,27 @@ public class Keeper {
 
     }
 
+    public void checkBeerQuality(ArrayList<Beer> beerList) {
+        for (Beer beer : beerList) {
+            System.out.println(beer);
+            if (beer.isGood()) {
+                System.out.println("Good beer, drink");
+            } else {
+                System.out.println("Shit, better avoid");
+            }
+        }
+    }
+
+
+
+
+    public void checkBeer2(ArrayList<Beer> beerList) {
+        for (Beer beer : beerList){
+            boolean good = beer.isGood();
+            boolean strong = beer.isStrong();
+        }
+
+    }
+
+
 }

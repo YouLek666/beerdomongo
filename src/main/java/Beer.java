@@ -40,15 +40,28 @@ public class Beer {
         } else {
             return false;
         }
-
     }
 
-    public static boolean isStrong(double Percent) {
-        if (Percent > 4.9) {
+    public boolean isGood() {
+        if (this.Plato > 10) {
             return true;
         } else {
             return false;
         }
+
+    }
+
+    public static boolean isGood(Beer beer) {
+        if (beer.Plato > 10) {
+            return true;
+        } else {
+            return false;
+        }
+
+
+
+
+
     }
 
 
