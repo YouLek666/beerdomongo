@@ -1,3 +1,7 @@
+package it.morfoza.beerdomongo;
+
+import it.morfoza.beerdomongo.Beer;
+
 import java.util.ArrayList;
 
 public class Keeper {

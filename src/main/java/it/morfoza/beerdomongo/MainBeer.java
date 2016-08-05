@@ -1,3 +1,5 @@
+package it.morfoza.beerdomongo;
+
 import java.util.ArrayList;
 
 /**
@@ -12,7 +14,7 @@ public class MainBeer {
         beerList.add(new Beer("Tenczynek Lager", 4.9, 12));
         beerList.add(new Beer("Tyskie", 5.6, 9));
         // Błąd! To nie jest piwo!
-//        beerList.add(new Beer("Piotrek", 192, 12));
+//        beerList.add(new it.morfoza.beerdomongo.Beer("Piotrek", 192, 12));
 
 
         Keeper julek = new Keeper();

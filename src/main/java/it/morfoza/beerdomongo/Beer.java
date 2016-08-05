@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+package it.morfoza.beerdomongo;
 
 /**
  * Created by widzew on 2016-07-30.
@@ -22,7 +22,7 @@ public class Beer {
 
 
     public String toString() {
-        return "Beer " + BeerName + " Percent " + Percent + " Plato " + Plato;
+        return "it.morfoza.beerdomongo.Beer " + BeerName + " Percent " + Percent + " Plato " + Plato;
     }
 
     public boolean isStrong() {
