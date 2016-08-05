@@ -9,11 +9,11 @@ public class Beer {
     private double Percent;
     private double Plato;
 
-    public Beer(String beerName, double Percent, double Plato) {
+    public Beer(String beerName, double Percent, double Plato) throws ThisIsNotABeer {
         this.BeerName = beerName;
         if(Percent > 70) {
             System.out.println("Zgupłeś??!! Ustawiam 70% (max. dopuszczalne)");
-            throw new RuntimeException("70% to za duzo jak na piwo!");
+            throw new ThisIsNotABeer();
         } else {
             this.Percent = Percent;
         }
