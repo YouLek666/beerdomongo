@@ -22,7 +22,7 @@ public class Beer {
 
 
     public String toString() {
-        return "it.morfoza.beerdomongo.Beer " + BeerName + " Percent " + Percent + " Plato " + Plato;
+        return "Beer: " + BeerName + " Percent: " + Percent + " Plato: " + Plato;
     }
 
     public boolean isStrong() {
