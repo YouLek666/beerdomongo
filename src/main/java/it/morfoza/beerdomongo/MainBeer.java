@@ -1,11 +1,14 @@
 package it.morfoza.beerdomongo;
 
+import spark.Spark;
+
 import java.util.ArrayList;
 
 /**
  * Created by widzew on 2016-07-30.
  */
 public class MainBeer {
+
     public static void main(String[] args) throws ThisIsNotABeer {
 
         ArrayList<Beer> beerList = new ArrayList<>();
