@@ -5,6 +5,8 @@ package it.morfoza.beerdomongo;
  */
 public class Beer {
 
+
+    public static double howManyAlcoholHasBeer;
     private String BeerName;
     private double Percent;
     private double Plato;
@@ -57,6 +59,13 @@ public class Beer {
         } else {
             return false;
         }
+    }
+
+    public static double howManyAlcoholHasBeer(Beer beer) {
+        return (500 * beer.Percent) * 0.79;
+    }
+}
+
 
 
 
