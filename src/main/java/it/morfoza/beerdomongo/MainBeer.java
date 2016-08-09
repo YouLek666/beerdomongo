@@ -12,10 +12,10 @@ public class MainBeer {
     public static void main(String[] args) throws ThisIsNotABeer {
 
         ArrayList<Beer> beerList = new ArrayList<>();
-        beerList.add(new Beer("Rebel Podwójnie Chmielone", 5, 12));
-        beerList.add(new Beer("Ciechan", 6, 12.2));
-        beerList.add(new Beer("Tenczynek Lager", 4.9, 12));
-        beerList.add(new Beer("Tyskie", 5.6, 9));
+        beerList.add(new Beer("Rebel Podwójnie Chmielone", 5, 12, 230, 23));
+        beerList.add(new Beer("Ciechan", 6, 12.2, 240, 22));
+        beerList.add(new Beer("Tenczynek Lager", 4.9, 12, 205, 20));
+        beerList.add(new Beer("Tyskie", 5.6, 9, 201, 25));
 
 
 

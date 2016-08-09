@@ -5,30 +5,32 @@ package it.morfoza.beerdomongo;
  */
 public class Beer {
 
+    private String beerName;
+    private double percent;
+    private double plato;
+    private int calories;
+    private double howManyAlcoholHasBeer;
 
-    public static double howManyAlcoholHasBeer;
-    private String BeerName;
-    private double Percent;
-    private double Plato;
-
-    public Beer(String beerName, double Percent, double Plato) throws ThisIsNotABeer {
-        this.BeerName = beerName;
-        if(Percent > 70) {
+    public Beer(String beerName, double percent, double Plato, int Calories, double howManyAlcoholHasBeer) throws ThisIsNotABeer {
+        this.beerName = beerName;
+        if(percent > 70) {
             System.out.println("Zgupłeś??!! Ustawiam 70% (max. dopuszczalne)");
             throw new ThisIsNotABeer();
         } else {
-            this.Percent = Percent;
+            this.percent = percent;
         }
-        this.Plato = Plato;
+        this.plato = Plato;
+        this.calories = Calories;
+        this.howManyAlcoholHasBeer = howManyAlcoholHasBeer;
     }
 
 
     public String toString() {
-        return "Beer: " + BeerName + " Percent: " + Percent + " Plato: " + Plato;
+        return "Beer: " + beerName + " Percent: " + percent + " Plato: " + plato + " Calories: " + calories + " Alcohol in g: " + howManyAlcoholHasBeer;
     }
 
     public boolean isStrong() {
-        if (this.Percent > 4.9) {
+        if (this.percent > 4.9) {
             return true;
         } else {
             return false;
@@ -37,7 +39,7 @@ public class Beer {
     }
 
     public static boolean isStrong(Beer beer) {
-        if (beer.Percent > 4.9) {
+        if (beer.percent > 4.9) {
             return true;
         } else {
             return false;
@@ -45,7 +47,7 @@ public class Beer {
     }
 
     public boolean isGood() {
-        if (this.Plato > 10) {
+        if (this.plato > 10) {
             return true;
         } else {
             return false;
@@ -54,7 +56,7 @@ public class Beer {
     }
 
     public static boolean isGood(Beer beer) {
-        if (beer.Plato > 10) {
+        if (beer.plato > 10) {
             return true;
         } else {
             return false;
@@ -62,7 +64,7 @@ public class Beer {
     }
 
     public static double howManyAlcoholHasBeer(Beer beer) {
-        return (500 * beer.Percent) * 0.79;
+        return (500 * beer.percent) * 0.79;
     }
 }
 
@@ -70,8 +72,3 @@ public class Beer {
 
 
 
-
-    }
-
-
-}
