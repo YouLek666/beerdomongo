@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class MainBeer {
 
-    public static void main(String[] args) throws ThisIsNotABeer {
+    public static void consoloVersion(String[] args) throws ThisIsNotABeer {
 
         ArrayList<Beer> beerList = new ArrayList<>();
         beerList.add(new Beer("Rebel Podwójnie Chmielone", 5, 12, 230, 23));

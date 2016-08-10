@@ -66,6 +66,11 @@ public class Beer {
     public double howMuchAlcoholHasBeer() {
         return (500 * this.percent) * 0.79;
     }
+
+
+    public String getName() {
+        return beerName;
+    }
 }
 
 

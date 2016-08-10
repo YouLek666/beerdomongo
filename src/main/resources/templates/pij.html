@@ -5,13 +5,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<p th:text="'Hello, ' + ${name} + ' let`s have a beer!! '" />
-<ul>
- <li th:each="beer : ${beers}">
-     <p ><span th:text="${beer}">Tyskie</span> <a href="#" th:href="'pij?beerName='+${beer.name}">drink</a> </p>
+<p th:text="'Hello, ' + ${beerName} + ' let`s have a beer!! '" />
 
- </li>
-</ul>
 <input type="button" value="DRINK BEER" />
 </body>
 </html>

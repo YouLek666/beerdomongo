@@ -7,9 +7,9 @@ import spark.template.freemarker.FreeMarkerEngine;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Beerdomongo {
+public class BeerdomongoSpark {
 
-    public static void main(String[] args) {
+    public static void sparkVersion(String[] args) {
 
 
         Spark.staticFileLocation("/webfiles");
