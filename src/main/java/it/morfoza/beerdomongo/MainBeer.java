@@ -23,6 +23,13 @@ public class MainBeer {
         julek.checkBeer2(beerList);
 
 
+        User user = new User("Marian",22,84,Gender.MALE);
+        user.drinkBeer(beerList.get(2));
+        double promilsInBlood = user.howDrunkManIs();
+        System.out.println(user);
+        System.out.println("Masz " + promilsInBlood + " promila");
+
+
         System.out.println();
         System.out.println("Pętla while:");
         int i = 0;

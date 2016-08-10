@@ -1,14 +1,20 @@
 package it.morfoza.beerdomongo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by widzew on 2016-08-08.
  */
 public class User {
 
+
     private String name;
     private int age;
     private float weight;
     private Gender gender;
+
+    private List<Beer> drinkedBeers = new ArrayList<>();
 
     public User(String name, int age, float weight, Gender gender) {
         this.name = name;
@@ -19,7 +25,7 @@ public class User {
 
 
     public String toString() {
-        return name + " " + age + " " + weight + " " + gender + "";
+        return name + " " + age + " lat " + weight + " kg " + gender +" wypił " + drinkedBeers + "";
     }
 
     public float getWeight() {
@@ -30,19 +36,27 @@ public class User {
         return name;
     }
 
-    public void drinkBeer(Beer beer) {
 
+    public void drinkBeer(Beer beer) {
+        drinkedBeers.add(beer);
     }
 
 
     public double howDrunkManIs() {
-       // return Beer.howManyAlcoholHasBeer() / (weight * 0.7);
-        return 5;
+        double totalGramsOfDrunkenAlcohol = 0;
+        for (Beer beer : drinkedBeers) {
+            double gramsOfAlcohol = beer.howMuchAlcoholHasBeer();
+            totalGramsOfDrunkenAlcohol = gramsOfAlcohol + totalGramsOfDrunkenAlcohol;
+        }
+        return (totalGramsOfDrunkenAlcohol/100) / (weight * 0.7);
     }
 
     public double howDrunkWomanIs() {
-        // return Beer.howManyAlcoholHasBeer() / (weight * 0.6);
-        return 5;
+        double totalGramsOfDrunkenAlcohol = 0;
+        for (Beer beer : drinkedBeers) {
+            double gramsOfAlcohol = beer.howMuchAlcoholHasBeer();
+            totalGramsOfDrunkenAlcohol = gramsOfAlcohol + totalGramsOfDrunkenAlcohol;
+        }
+        return (totalGramsOfDrunkenAlcohol/100) / (weight * 0.6);
     }
-
 }

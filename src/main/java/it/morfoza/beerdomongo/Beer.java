@@ -63,8 +63,8 @@ public class Beer {
         }
     }
 
-    public static double howManyAlcoholHasBeer(Beer beer) {
-        return (500 * beer.percent) * 0.79;
+    public double howMuchAlcoholHasBeer() {
+        return (500 * this.percent) * 0.79;
     }
 }
 
