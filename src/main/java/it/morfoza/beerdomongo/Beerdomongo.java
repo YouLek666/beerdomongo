@@ -39,8 +39,8 @@ public class Beerdomongo {
             model.put("plato", plato);
             model.put("calories", calories);
 
-            return new ModelAndView(model, "beerthinks.ftl");
-        }, new FreeMarkerEngine());
+        return new ModelAndView(model, "beerthinks.ftl");
+    }, new FreeMarkerEngine());
 
 
     }
