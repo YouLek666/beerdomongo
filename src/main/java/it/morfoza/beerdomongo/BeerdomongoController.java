@@ -1,5 +1,6 @@
 package it.morfoza.beerdomongo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,13 @@ public class BeerdomongoController {
 
     private List<Beer> beerList;
     private User user;
+
+    private BeerRepository beerRepository;
+
+    @Autowired
+    public BeerdomongoController(BeerRepository beerRepository) {
+        this.beerRepository = beerRepository;
+    }
 
 
     public BeerdomongoController() throws ThisIsNotABeer {
