@@ -26,15 +26,6 @@ public class BeerdomongoController {
     }
 
 
-    public BeerdomongoController() throws ThisIsNotABeer {
-        beerList = new ArrayList<>();
-        beerList.add(new Beer("Rebel Podwójnie Chmielone", 5, 12, 230, 23));
-        beerList.add(new Beer("Ciechan", 6, 12.2, 240, 22));
-        beerList.add(new Beer("Tenczynek Lager", 4.9, 12, 205, 20));
-        beerList.add(new Beer("Tyskie", 5.6, 9, 201, 25));
-
-    }
-
     @RequestMapping("/beerdomongo")
     public String beerdomongo() {
         return "beerdomongo";
@@ -52,14 +43,18 @@ public class BeerdomongoController {
 
         user = new User(name, age, weight, gender);
         model.addAttribute("user1", user);
-        model.addAttribute("beers", beerList);
+        model.addAttribute("beers", beerRepository.getAllBeers());
 
 
         return "form";
     }
     @RequestMapping("/pij")
     public String pij(@RequestParam(value = "beer.name") String beerName, Model model) {
+        Beer beer = beerRepository.findByName(beerName);
+        user.drinkBeer(beer);
+
         model.addAttribute("beer.name", beerName);
+        model.addAttribute("user", user);
             return "pij";}
 
 }

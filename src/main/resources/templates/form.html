@@ -8,7 +8,7 @@
 <p th:text="'Hello, ' + ${name} + ' let`s have a beer!! '" />
 <ul>
  <li th:each="beer : ${beers}">
-     <p ><span th:text="${beer}">Tyskie</span> <a href="#" th:href="'pij?beerName='+${beer.name}">drink</a> </p>
+     <p ><span th:text="${beer}">Tyskie</span> <a href="#" th:href="'pij?beer.name='+${beer.name}">drink</a> </p>
 
  </li>
 </ul>

@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<p th:text="'Hello, ' + ${beerName} + ' let`s have a beer!! '" />
+<p th:text="'Hello, ' + ${user.name} + ', you\'ve just had ' + ${beerName} + '. Let`s have a beer!! Your state:' + ${user}" />
 
 <input type="button" value="DRINK BEER" />
 </body>
