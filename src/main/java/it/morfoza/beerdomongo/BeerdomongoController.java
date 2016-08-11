@@ -15,16 +15,14 @@ import java.util.List;
 @Controller
 public class BeerdomongoController {
 
-    private List<Beer> beerList;
-    private User user;
-
     private BeerRepository beerRepository;
+    private UserSession session;
 
     @Autowired
-    public BeerdomongoController(BeerRepository beerRepository) {
+    public BeerdomongoController(BeerRepository beerRepository, UserSession session) {
         this.beerRepository = beerRepository;
+        this.session = session;
     }
-
 
     @RequestMapping("/beerdomongo")
     public String beerdomongo() {
@@ -41,21 +39,25 @@ public class BeerdomongoController {
         model.addAttribute("weight", weight);
         model.addAttribute("gender", gender);
 
-        user = new User(name, age, weight, gender);
+        User user = new User(name, age, weight, gender);
+        session.setCurrentUser(user);
         model.addAttribute("user1", user);
         model.addAttribute("beers", beerRepository.getAllBeers());
 
 
         return "form";
     }
+
     @RequestMapping("/pij")
     public String pij(@RequestParam(value = "beer.name") String beerName, Model model) {
         Beer beer = beerRepository.findByName(beerName);
+        User user = session.getCurrentUser();
         user.drinkBeer(beer);
 
         model.addAttribute("beer.name", beerName);
         model.addAttribute("user", user);
-            return "pij";}
+        return "pij";
+    }
 
 }
 
