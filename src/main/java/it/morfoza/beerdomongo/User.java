@@ -35,6 +35,8 @@ public class User {
         return name;
     }
 
+    public Gender getGender() {return gender;}
+
 
     public void drinkBeer(Beer beer) {
         drinkedBeers.add(beer);
@@ -58,4 +60,5 @@ public class User {
         }
         return (totalGramsOfDrunkenAlcohol/100) / (weight * 0.6);
     }
+
 }

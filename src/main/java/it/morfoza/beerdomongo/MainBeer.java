@@ -4,6 +4,9 @@ import spark.Spark;
 
 import java.util.ArrayList;
 
+import static it.morfoza.beerdomongo.Gender.*;
+import static it.morfoza.beerdomongo.Gender.MALE;
+
 /**
  * Created by widzew on 2016-07-30.
  */
@@ -23,9 +26,17 @@ public class MainBeer {
         julek.checkBeer2(beerList);
 
 
-        User user = new User("Marian",22,84,Gender.MALE);
+        User user = new User("Marian",22,84, FEMALE);
         user.drinkBeer(beerList.get(2));
-        double promilsInBlood = user.howDrunkManIs();
+        double promilsInBlood;
+        switch (FEMALE) {
+            case gender:
+                promilsInBlood = user.howDrunkWomanIs();
+                break;
+            default:
+                promilsInBlood = user.howDrunkManIs();
+                break;
+        }
         System.out.println(user);
         System.out.println("Masz " + promilsInBlood + " promila");
 
