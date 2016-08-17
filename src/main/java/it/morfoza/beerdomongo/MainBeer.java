@@ -2,7 +2,10 @@ package it.morfoza.beerdomongo;
 
 import spark.Spark;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Timer;
 
 import static it.morfoza.beerdomongo.Gender.*;
 import static it.morfoza.beerdomongo.Gender.MALE;
@@ -39,6 +42,33 @@ public class MainBeer {
         }
         System.out.println(user);
         System.out.println("Masz " + promilsInBlood + " promila");
+
+        int soberInSeconds;
+        switch (FEMALE) {
+            case gender:
+                soberInSeconds = user.timeToBeSoberFemale();
+                break;
+            default:
+                soberInSeconds = user.timeToBeSoberMale();
+                break;
+        }
+
+        System.out.println(soberInSeconds);
+
+        final int[] count = {soberInSeconds};
+        int delay = 1000;
+
+        ActionListener actionToPreform = new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+
+                if(count[0] > 0){
+                    count[0]--;
+                }
+            }
+        };
+
+        //new Timer(delay, actionToPreform).start();
+
 
 
         System.out.println();

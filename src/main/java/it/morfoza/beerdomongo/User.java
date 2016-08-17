@@ -1,11 +1,14 @@
 package it.morfoza.beerdomongo;
 
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by widzew on 2016-08-08.
  */
+@Component
 public class User {
 
     private String name;
@@ -24,7 +27,7 @@ public class User {
 
 
     public String toString() {
-        return name + " " + age + " lat " + weight + " kg " + gender +" wypił " + drinkedBeers + "";
+        return name + " " + age + " lat " + weight + " kg " + gender + " wypił " + drinkedBeers + "";
     }
 
     public float getWeight() {
@@ -35,7 +38,9 @@ public class User {
         return name;
     }
 
-    public Gender getGender() {return gender;}
+    public Gender getGender() {
+        return gender;
+    }
 
 
     public void drinkBeer(Beer beer) {
@@ -49,7 +54,7 @@ public class User {
             double gramsOfAlcohol = beer.howMuchAlcoholHasBeer();
             totalGramsOfDrunkenAlcohol = gramsOfAlcohol + totalGramsOfDrunkenAlcohol;
         }
-        return (totalGramsOfDrunkenAlcohol/100) / (weight * 0.7);
+        return (totalGramsOfDrunkenAlcohol / 100) / (weight * 0.7);
     }
 
     public double howDrunkWomanIs() {
@@ -58,7 +63,16 @@ public class User {
             double gramsOfAlcohol = beer.howMuchAlcoholHasBeer();
             totalGramsOfDrunkenAlcohol = gramsOfAlcohol + totalGramsOfDrunkenAlcohol;
         }
-        return (totalGramsOfDrunkenAlcohol/100) / (weight * 0.6);
+        return (totalGramsOfDrunkenAlcohol / 100) / (weight * 0.6);
     }
+
+    public int timeToBeSoberMale() {
+        int sobering = (int) ((howDrunkManIs()/0.15)/360);
+        return sobering;}
+
+    public int timeToBeSoberFemale() {
+        int sobering1= (int) ((howDrunkWomanIs()/0.15)/360);
+        return sobering1;}
+
 
 }
