@@ -1,8 +1,11 @@
 package it.morfoza.beerdomongo;
 
+import org.springframework.stereotype.Component;
+
 /**
  * Created by widzew on 2016-08-12.
  */
+@Component
 public class SingleUserSession implements UserSession {
 
     private User user;

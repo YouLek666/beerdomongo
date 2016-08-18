@@ -31,44 +31,12 @@ public class MainBeer {
 
         User user = new User("Marian",22,84, FEMALE);
         user.drinkBeer(beerList.get(2));
-        double promilsInBlood;
-        switch (FEMALE) {
-            case gender:
-                promilsInBlood = user.howDrunkWomanIs();
-                break;
-            default:
-                promilsInBlood = user.howDrunkManIs();
-                break;
-        }
+        double promilsInBlood = user.howDrunkIs();
+        double soberInHours = user.timeToBeSober();
+
         System.out.println(user);
         System.out.println("Masz " + promilsInBlood + " promila");
-
-        int soberInSeconds;
-        switch (FEMALE) {
-            case gender:
-                soberInSeconds = user.timeToBeSoberFemale();
-                break;
-            default:
-                soberInSeconds = user.timeToBeSoberMale();
-                break;
-        }
-
-        System.out.println(soberInSeconds);
-
-        final int[] count = {soberInSeconds};
-        int delay = 1000;
-
-        ActionListener actionToPreform = new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-
-                if(count[0] > 0){
-                    count[0]--;
-                }
-            }
-        };
-
-        //new Timer(delay, actionToPreform).start();
-
+        System.out.println("Będziesz trzeźwy za " + soberInHours + " godziny");
 
 
         System.out.println();

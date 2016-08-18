@@ -8,7 +8,6 @@ import java.util.List;
 /**
  * Created by widzew on 2016-08-08.
  */
-@Component
 public class User {
 
     private String name;
@@ -48,31 +47,29 @@ public class User {
     }
 
 
-    public double howDrunkManIs() {
+    public double howDrunkIs() {
+        if (getGender()== Gender.MALE) {
         double totalGramsOfDrunkenAlcohol = 0;
         for (Beer beer : drinkedBeers) {
             double gramsOfAlcohol = beer.howMuchAlcoholHasBeer();
             totalGramsOfDrunkenAlcohol = gramsOfAlcohol + totalGramsOfDrunkenAlcohol;
         }
         return (totalGramsOfDrunkenAlcohol / 100) / (weight * 0.7);
-    }
-
-    public double howDrunkWomanIs() {
-        double totalGramsOfDrunkenAlcohol = 0;
-        for (Beer beer : drinkedBeers) {
-            double gramsOfAlcohol = beer.howMuchAlcoholHasBeer();
-            totalGramsOfDrunkenAlcohol = gramsOfAlcohol + totalGramsOfDrunkenAlcohol;
+    } else {
+                double totalGramsOfDrunkenAlcohol = 0;
+                for (Beer beer : drinkedBeers) {
+                    double gramsOfAlcohol = beer.howMuchAlcoholHasBeer();
+                    totalGramsOfDrunkenAlcohol = gramsOfAlcohol + totalGramsOfDrunkenAlcohol;
+                }
+                return (totalGramsOfDrunkenAlcohol / 100) / (weight * 0.6);
+            }
         }
-        return (totalGramsOfDrunkenAlcohol / 100) / (weight * 0.6);
-    }
 
-    public int timeToBeSoberMale() {
-        int sobering = (int) ((howDrunkManIs()/0.15)/360);
+    public double timeToBeSober() {
+        double sobering =  ((howDrunkIs()/0.15));
         return sobering;}
 
-    public int timeToBeSoberFemale() {
-        int sobering1= (int) ((howDrunkWomanIs()/0.15)/360);
-        return sobering1;}
+
 
 
 }
