@@ -54,9 +54,14 @@ public class BeerdomongoController {
         User user = session.getCurrentUser();
         user.drinkBeer(beer);
 
+        return "redirect:/user_info";
+    }
+
+    @RequestMapping("/user_info")
+    public String userInfo(Model model) {
+        User user = session.getCurrentUser();
         double promilsInBlood = user.howDrunkIs();
 
-        model.addAttribute("beer.name", beerName);
         model.addAttribute("user", user);
         model.addAttribute("promils", promilsInBlood);
         return "pij";
