@@ -49,11 +49,12 @@ public class BeerdomongoController {
     }
 
     @RequestMapping("/pij")
-    public String pij(@RequestParam(value = "promils") double promilsInBlood,
-                      @RequestParam(value = "beer.name") String beerName, Model model) {
+    public String pij(@RequestParam(value = "beer.name") String beerName, Model model) {
         Beer beer = beerRepository.findByName(beerName);
         User user = session.getCurrentUser();
         user.drinkBeer(beer);
+
+        double promilsInBlood = user.howDrunkIs();
 
         model.addAttribute("beer.name", beerName);
         model.addAttribute("user", user);

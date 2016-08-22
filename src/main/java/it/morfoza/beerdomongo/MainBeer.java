@@ -4,6 +4,7 @@ import spark.Spark;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Timer;
 
@@ -36,6 +37,8 @@ public class MainBeer {
 
         System.out.println(user);
         System.out.println("Masz " + promilsInBlood + " promila");
+        LocalDateTime currentTime = LocalDateTime.now();
+        System.out.println("Jest godzina: " + currentTime);
         System.out.println("Będziesz trzeźwy za " + soberInHours + " godziny");
 
 
