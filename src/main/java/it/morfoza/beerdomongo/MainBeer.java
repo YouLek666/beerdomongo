@@ -1,15 +1,9 @@
 package it.morfoza.beerdomongo;
 
-import spark.Spark;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Timer;
 
 import static it.morfoza.beerdomongo.Gender.*;
-import static it.morfoza.beerdomongo.Gender.MALE;
 
 /**
  * Created by widzew on 2016-07-30.
@@ -33,7 +27,7 @@ public class MainBeer {
         User user = new User("Marian",22,84, FEMALE);
         user.drinkBeer(beerList.get(2));
         double promilsInBlood = user.howDrunkIs();
-        double soberInHours = user.timeToBeSober();
+        double soberInHours = user.timeToBeSoberFromLastBeer();
 
         System.out.println(user);
         System.out.println("Masz " + promilsInBlood + " promila");

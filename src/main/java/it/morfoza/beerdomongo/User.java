@@ -2,6 +2,8 @@ package it.morfoza.beerdomongo;
 
 import org.springframework.stereotype.Component;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +16,7 @@ public class User {
     private int age;
     private float weight;
     private Gender gender;
+    private LocalDateTime momentOfDrinkingLastBeer;
 
     private List<Beer> drinkedBeers = new ArrayList<>();
 
@@ -26,7 +29,7 @@ public class User {
 
 
     public String toString() {
-        return name + " " + age + " lat " + weight + " kg " + gender + " wypił " + drinkedBeers + "";
+        return name + " " + age + " lat " + weight + " kg " + gender + " wypił " + drinkedBeers + " czas trzezwienia od ostatniego piwka: " + timeToBeSoberFromLastBeer() + " czas trzezwienia od teraz (h): " + timeToBeSober() ;
     }
 
     public float getWeight() {
@@ -43,33 +46,50 @@ public class User {
 
 
     public void drinkBeer(Beer beer) {
+        momentOfDrinkingLastBeer = LocalDateTime.now();
         drinkedBeers.add(beer);
     }
 
-
     public double howDrunkIs() {
-        if (getGender()== Gender.MALE) {
+        if (getGender() == Gender.MALE) {
+            return howDrunkManIs();
+        } else {
+            return howDrunkWomanIs();
+        }
+    }
+
+    private double howDrunkWomanIs() {
+        return howDrunkIsForFactor(0.6);
+    }
+
+    private double howDrunkManIs() {
+        return howDrunkIsForFactor(0.7);
+    }
+
+    private double howDrunkIsForFactor(double drunkFactor) {
         double totalGramsOfDrunkenAlcohol = 0;
         for (Beer beer : drinkedBeers) {
             double gramsOfAlcohol = beer.howMuchAlcoholHasBeer();
             totalGramsOfDrunkenAlcohol = gramsOfAlcohol + totalGramsOfDrunkenAlcohol;
         }
-        return (totalGramsOfDrunkenAlcohol / 100) / (weight * 0.7);
-    } else {
-                double totalGramsOfDrunkenAlcohol = 0;
-                for (Beer beer : drinkedBeers) {
-                    double gramsOfAlcohol = beer.howMuchAlcoholHasBeer();
-                    totalGramsOfDrunkenAlcohol = gramsOfAlcohol + totalGramsOfDrunkenAlcohol;
-                }
-                return (totalGramsOfDrunkenAlcohol / 100) / (weight * 0.6);
-            }
-        }
+        return (totalGramsOfDrunkenAlcohol / 100) / (weight * drunkFactor);
+    }
+
+    public double timeToBeSoberFromLastBeer() {
+        double sobering = ((howDrunkIs() / 0.15));
+        return sobering;
+    }
 
     public double timeToBeSober() {
-        double sobering =  ((howDrunkIs()/0.15));
-        return sobering;}
+        return timeToBeSoberFromLastBeer() - timePassedFromLastBeer();
+    }
 
+    private double timePassedFromLastBeer() {
+        Duration duration = Duration.between(momentOfDrinkingLastBeer, LocalDateTime.now());
+        double numberOfSecondsInAnHour = 60*60;
+        return duration.getSeconds() / numberOfSecondsInAnHour;
 
+    }
 
 
 }
