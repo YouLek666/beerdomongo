@@ -1,9 +1,11 @@
-<html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/html"  xmlns:th="http://www.thymeleaf.org">
 <head>
     <style> body { background-color:#1aff1a }
     div {background-color: #DD0000 }
     </style>
 </head>
+<p th:text ="${error}"/>
 <form action="form">
     <p>Name</p>
     <input name="name"/>

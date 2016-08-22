@@ -6,8 +6,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
+
 
 /**
  * Created by widzew on 2016-08-10.
@@ -25,7 +28,8 @@ public class BeerdomongoController {
     }
 
     @RequestMapping("/beerdomongo")
-    public String beerdomongo() {
+    public String beerdomongo(@RequestParam(value = "error", required = false) String error, Model model) {
+        model.addAttribute("error", error);
         return "beerdomongo";
     }
 
@@ -38,6 +42,14 @@ public class BeerdomongoController {
         model.addAttribute("age", age);
         model.addAttribute("weight", weight);
         model.addAttribute("gender", gender);
+
+        if (age < 18){
+            String error = encode ("Jesteś za młody. Wracaj do piaskownicy!");
+            return "redirect:/beerdomongo?error=" + error;
+        }
+
+
+
 
         User user = new User(name, age, weight, gender);
         session.setCurrentUser(user);
@@ -65,6 +77,14 @@ public class BeerdomongoController {
         model.addAttribute("user", user);
         model.addAttribute("promils", promilsInBlood);
         return "pij";
+    }
+
+    private String encode(String text) {
+        try {
+            return URLEncoder.encode(text, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }
