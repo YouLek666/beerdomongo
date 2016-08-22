@@ -56,7 +56,7 @@ public class BeerdomongoController {
 
         double promilsInBlood = user.howDrunkIs();
 
-        model.addAttribute("beer.name", beerName);
+        model.addAttribute("beerName", beerName);
         model.addAttribute("user", user);
         model.addAttribute("promils", promilsInBlood);
         return "pij";
