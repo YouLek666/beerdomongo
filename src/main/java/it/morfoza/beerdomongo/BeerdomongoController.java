@@ -48,9 +48,6 @@ public class BeerdomongoController {
             return "redirect:/beerdomongo?error=" + error;
         }
 
-
-
-
         User user = new User(name, age, weight, gender);
         session.setCurrentUser(user);
         model.addAttribute("user1", user);
