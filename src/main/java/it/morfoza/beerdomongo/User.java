@@ -1,5 +1,6 @@
 package it.morfoza.beerdomongo;
 
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import java.time.Duration;
@@ -44,7 +45,6 @@ public class User {
         return gender;
     }
 
-
     public void drinkBeer(Beer beer) {
         momentOfDrinkingLastBeer = LocalDateTime.now();
         drinkedBeers.add(beer);
@@ -85,6 +85,9 @@ public class User {
     }
 
     private double timePassedFromLastBeer() {
+        if (momentOfDrinkingLastBeer == null) {
+            return 0;
+        }
         Duration duration = Duration.between(momentOfDrinkingLastBeer, LocalDateTime.now());
         double numberOfSecondsInAnHour = 60*60;
         return duration.getSeconds() / numberOfSecondsInAnHour;

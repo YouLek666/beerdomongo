@@ -49,6 +49,9 @@ public class BeerdomongoController {
         }
 
         User user = new User(name, age, weight, gender);
+
+
+
         session.setCurrentUser(user);
         model.addAttribute("user1", user);
         model.addAttribute("beers", beerRepository.getAllBeers());
@@ -56,6 +59,13 @@ public class BeerdomongoController {
 
         return "form";
     }
+
+   // public String login(@RequestParam("id") long id) {
+
+    //    User user = userRepository.getById(id);
+      //  session.setCurrentUser(user);
+    //}
+
 
     @RequestMapping("/pij")
     public String pij(@RequestParam(value = "beer.name") String beerName, Model model) {

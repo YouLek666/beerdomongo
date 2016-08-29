@@ -9,8 +9,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<p th:text="'Hello, ' + ${user.name} + '. In your blood you have' + ${promils} + ' promils. Let`s have a beer!! Your state: ' + ${user}" />
-<a href="javascript:history.back()">DRINK BEER</a>
+<ul>
+    <li th:each="user : ${user1}">
+        <p > <a href="#" th:href="'form?user='+${user1}">drink</a> </p>
+
+    </li>
+</ul>
 </body>
 </html>
-
